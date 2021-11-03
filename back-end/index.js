@@ -14,7 +14,7 @@ app.get('/', taskController.getTasks);
 
 app.post('/', taskController.setTask);
 
-app.put('/:id',);
+app.put('/:id', taskController.updateTask);
 
 app.delete('/:id',);
 

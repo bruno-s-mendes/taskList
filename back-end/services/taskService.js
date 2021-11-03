@@ -12,8 +12,14 @@ const addTask = async ({ description, deadLine }) => {
   return taskId;
 };
 
+const updateTask = async (id, { description, deadLine, status }) => {
+  const data = await taskModel.update(id, { description, deadLine, status });
+  return data;
+}
+
 
 module.exports = {
   getAll,
   addTask,
+  updateTask,
 };

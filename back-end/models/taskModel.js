@@ -1,3 +1,4 @@
+const { ObjectId } = require('bson');
 const connection = require('./connection');
 
 const COLLECTION = 'tasks';
@@ -24,7 +25,20 @@ const create = async ({ description, creationDate, deadLine, status }) => {
   };
 };
 
+const update = async (id, { description, deadLine, status }) => {
+  const collection = await connection()
+  .then((db) => db.collection(COLLECTION));
+
+  const response = await collection.updateOne(
+    { _id: new ObjectId(id) },
+    { $set: { description, deadLine, status } },
+  );
+
+  return response.result.ok;
+};
+
 module.exports = {
   getAll,
   create,
+  update,
 };
