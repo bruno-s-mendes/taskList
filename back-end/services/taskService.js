@@ -5,7 +5,15 @@ const getAll = async () => {
   return response;
 };
 
+const addTask = async ({ description, deadLine }) => {
+  const status = "Pendendte";
+  const creationDate = new Date();
+  const taskId = await taskModel.create({ description, creationDate, deadLine, status });
+  return taskId;
+};
+
 
 module.exports = {
   getAll,
+  addTask,
 };

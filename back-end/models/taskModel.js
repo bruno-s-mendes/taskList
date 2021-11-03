@@ -11,6 +11,20 @@ const getAll = async () => {
   return response;
 };
 
+
+const create = async ({ description, creationDate, deadLine, status }) => {
+  const collection = await connection()
+    .then((db) => db.collection(COLLECTION));
+
+  const { insertedId: id } = await collection
+    .insertOne({ description, creationDate, deadLine, status });
+
+  return {
+    id,
+  };
+};
+
 module.exports = {
   getAll,
+  create,
 };

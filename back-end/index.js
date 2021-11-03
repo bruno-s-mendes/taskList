@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', taskController.getTasks);
 
-app.post('/',);
+app.post('/', taskController.setTask);
 
 app.put('/:id',);
 

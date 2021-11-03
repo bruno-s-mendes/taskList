@@ -1,19 +1,30 @@
 const taskService = require('../services/taskService');
 
-// const HTTP_UNPROCESSABLE_ENTITY = 422;
+const HTTP_ERROR_STATUS = 400;
 const HTTP_OK_STATUS = 200;
 // const HTTP_CREATED_STATUS = 201;
 
-const getTasks = (_req, res) => {
-  const taskList = taskService.getAll();
-  res.status(HTTP_OK_STATUS).json(taskList);
+const getTasks = async (_req, res) => {
+  try {
+    const taskList = await taskService.getAll();
+    res.status(HTTP_OK_STATUS).json(taskList);
+  } catch (error) {
+    res.status(HTTP_ERROR_STATUS).json(error);
+  }
 }
 
-const addTask = (_req, res) => {
-  res.status(HTTP_OK_STATUS).json('olar');
+const setTask = async (req, res) => {
+  try {
+    const { description, deadLine } = req.body;
+    await taskService.addTask({ description, deadLine });
+    res.status(HTTP_OK_STATUS).end();
+  } catch (error) {
+    res.status(HTTP_ERROR_STATUS).json(error);
+  }
+
 }
 
 module.exports = {
   getTasks,
-  addTask,
+  setTask,
 }
