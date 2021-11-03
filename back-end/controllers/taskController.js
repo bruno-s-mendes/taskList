@@ -6,6 +6,12 @@ const getTasks = (_req, res) => {
   res.status(HTTP_OK_STATUS).json('olar');
 }
 
+const addTask = (_req, res) => {
+  res.status(HTTP_OK_STATUS).json('olar');
+  console.log("isso ae");
+}
+
 module.exports = {
   getTasks,
+  addTask,
 }
