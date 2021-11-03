@@ -37,8 +37,18 @@ const update = async (id, { description, deadLine, status }) => {
   return response.result.ok;
 };
 
+const deleteById = async (id) => {
+  const collection = await connection()
+  .then((db) => db.collection(COLLECTION));
+
+  const response = await collection.deleteOne({ _id: new ObjectId(id) });
+
+  return response;
+};
+
 module.exports = {
   getAll,
   create,
   update,
+  deleteById,
 };

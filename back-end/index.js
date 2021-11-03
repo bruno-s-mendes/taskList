@@ -16,7 +16,7 @@ app.post('/', taskController.setTask);
 
 app.put('/:id', taskController.updateTask);
 
-app.delete('/:id',);
+app.delete('/:id',taskController.deleteTask);
 
 app.get('/status', );
 
