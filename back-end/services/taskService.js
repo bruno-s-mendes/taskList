@@ -22,10 +22,15 @@ const deleteTask = async (id) => {
   return data;
 }
 
+const getTaskStatus = () => {
+  return ["Pendente", "Em andamento", "Pronto"];
+};
+
 
 module.exports = {
   getAll,
   addTask,
   updateTask,
   deleteTask,
+  getTaskStatus,
 };

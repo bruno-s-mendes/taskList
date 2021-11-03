@@ -18,7 +18,7 @@ app.put('/:id', taskController.updateTask);
 
 app.delete('/:id',taskController.deleteTask);
 
-app.get('/status', );
+app.get('/status', taskController.getTaskStatus);
 
 
 

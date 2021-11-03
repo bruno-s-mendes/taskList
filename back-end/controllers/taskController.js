@@ -44,9 +44,19 @@ const deleteTask = async (req, res) => {
   }
 }
 
+const getTaskStatus = (_req, res) => {
+  try {
+    const taskStatusList = taskService.getTaskStatus();
+    res.status(HTTP_OK_STATUS).json(taskStatusList);
+  } catch (error) {
+    res.status(HTTP_ERROR_STATUS).json(error);
+  }
+}
+
 module.exports = {
   getTasks,
   setTask,
   updateTask,
   deleteTask,
+  getTaskStatus
 }
