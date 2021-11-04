@@ -7,7 +7,8 @@ const getAll = async () => {
 
 const addTask = async ({ description, deadLine }) => {
   const status = "Pendendte";
-  const creationDate = new Date();
+  const nowDate = new Date();
+  const creationDate = nowDate.toLocaleDateString();
   const taskId = await taskModel.create({ description, creationDate, deadLine, status });
   return taskId;
 };

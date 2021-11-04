@@ -29,7 +29,6 @@ export default class App extends Component {
   fetchtasks = async () => {
     fetch(this.state.fetchURL)
     .then(response => response.json())
-    // .then(data => console.log(data))
     .then(data => this.setState({ taskList: data }))
     .catch(error => {
       console.error('There was an error!', error);
@@ -41,8 +40,6 @@ export default class App extends Component {
       isLoading: value
     });
   };
-
-
 
   render() {
     return (

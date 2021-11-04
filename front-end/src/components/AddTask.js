@@ -44,6 +44,7 @@ export default class AddTask extends Component {
           value = {this.state.description}
         />
         <input
+          required
           type="date"
           placeholder="Prazo"
           onChange= {(event) => this.changeState('date', event)}

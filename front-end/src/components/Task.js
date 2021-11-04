@@ -1,33 +1,88 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-// import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Task extends Component {
   constructor(props) {
     super(props);
-    const { fetchURL } = this.props;
+    const { description, creation, deadline, status, id, fetchURL, statusList } = this.props;
     this.state = {
+      description,
+      creation,
+      deadline,
+      status,
+      id,
       fetchURL,
-      statusList: [],
+      statusList,
     }
+    this.updateTask = this.updateTask.bind(this);
+    this.changeState = this.changeState.bind(this);
   }
+
+  changeState(state, event) {
+    this.setState({
+      [state]: event.target.value,
+    });
+  }
+
+  updateTask = () => {
+    const requestOptions = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        description: this.state.description,
+        deadLine: this.state.deadline,
+        status: this.state.status,
+      }),
+    }
+    fetch(`${this.state.fetchURL}${this.state.id}`, requestOptions);
+    this.props.setIsloading(true);
+  };
+
+  removeTask = () => {
+    const requestOptions = {
+      method: 'DELETE',
+    }
+    fetch(`${this.state.fetchURL}${this.state.id}`, requestOptions);
+    this.props.setIsloading(true);
+  };
+
   render() {
-    const { description, creation, deadline, status, id } = this.props;
-    console.log(id);
+    const { description, creation, deadline, status, statusList } = this.state;
+    
     return (
       <tr>
-      <td>{description}</td>
+      <td><input
+        type="text"
+        onChange= {(event) => this.changeState('description', event)}
+        value = {description}
+        onBlurCapture={() => this.updateTask()}
+      /></td>
       <td>{creation}</td>
-      <td>{deadline}</td>
-      <td>{status}</td>
+      <td><input
+          type="date"
+          onChange= {(event) => this.changeState('deadline', event)}
+          value = {deadline}
+          onBlurCapture={() => this.updateTask()}
+        /></td>
+      <td><select name="status">
+          <option value={status} >{status}</option>
+          {/* { statusList.map((status) => <option value={ status }>{ status }</option>) } */}
+          </select><button
+          onClick={() => this.removeTask()}
+          >x</button></td>
     </tr>
     );
   }
 }
 
-// Task.propTypes = {
-//   item: PropTypes.objectOf(PropTypes.any).isRequired,
-//   itemId: PropTypes.string.isRequired,
-// };
+Task.propTypes = {
+  setIsloading: PropTypes.func.isRequired,
+  fetchURL: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  creation: PropTypes.string.isRequired,
+  deadline: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
+};
 
 export default Task;
