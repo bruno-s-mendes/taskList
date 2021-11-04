@@ -12,14 +12,20 @@ export default class App extends Component {
     }
   }
 
+  setIsLoading = (value) => {
+    this.setState({
+      isLoading: value
+    });
+  };
+
   render() {
     return (
       <div className="App">
       <header className="">
         <h1>Lista de Tarefas</h1>
       </header>
-      <AddTask isloading={this.state.isLoading} fetchURL={this.state.fetchURL} />
-      <TaskList isloading={this.state.isLoading} fetchURL={this.state.fetchURL} />
+      <AddTask isloading={this.state.isLoading} setIsloading={this.setIsLoading} fetchURL={this.state.fetchURL} />
+      <TaskList isloading={this.state.isLoading} setIsloading={this.setIsLoading} fetchURL={this.state.fetchURL} />
     </div>
     );
   }

@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 export default class TaskList extends Component {
   constructor(props) {
     super(props);
-    const { isLoading, fetchURL } = this.props;
+    const { isloading, fetchURL } = this.props;
     this.state = {
-      isLoading,
+      isloading,
       fetchURL,
       taskList: [],
       statusList: [],
@@ -21,7 +21,8 @@ export default class TaskList extends Component {
   fetchtasks = async () => {
     fetch(this.state.fetchURL)
     .then(response => response.json())
-    .then(data => this.setState({ taskList: data }))
+    .then(data => console.log(data))
+    // .then(data => this.setState({ taskList: data }))
     .catch(error => {
       console.error('There was an error!', error);
   });;
@@ -29,9 +30,9 @@ export default class TaskList extends Component {
 
 
   render() {
-    if (this.state.isLoading) {
-      console.log(this.state.isLoading);
-      // this.fetchtasks();
+    if (this.props.isLoading) {
+      this.props.setIsloading(false);
+      this.fetchtasks();
     }
     return (
       <table>
@@ -53,6 +54,6 @@ export default class TaskList extends Component {
 }
 
 TaskList.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
+  isloading: PropTypes.bool.isRequired,
   fetchURL: PropTypes.string.isRequired,
 };
