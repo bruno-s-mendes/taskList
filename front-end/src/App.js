@@ -18,6 +18,13 @@ export default class App extends Component {
     this.fetchtasks();
     this.setIsLoading(true);
   }
+
+  componentDidUpdate(_prevProps, _prevState) {
+    if (this.state.isLoading) {
+      this.fetchtasks();
+      this.setIsLoading(false);
+    }
+  }
   
   fetchtasks = async () => {
     fetch(this.state.fetchURL)
@@ -35,17 +42,15 @@ export default class App extends Component {
     });
   };
 
+
+
   render() {
-    if (this.state.isLoading){
-      this.fetchtasks();
-      this.setIsLoading(false);
-    }
     return (
       <div className="App">
       <header className="">
         <h1>Lista de Tarefas</h1>
       </header>
-      <AddTask isloading={this.state.isLoading} setIsloading={this.setIsLoading} fetchURL={this.state.fetchURL} />
+      <AddTask setIsloading={this.setIsLoading} fetchURL={this.state.fetchURL} />
       <TaskList taskList={this.state.taskList} setIsloading={this.setIsLoading} fetchURL={this.state.fetchURL} />
     </div>
     );

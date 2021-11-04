@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default class AddTask extends Component {
   constructor(props) {
     super(props);
-    const { isloading, fetchURL } = this.props;
+    const { fetchURL } = this.props;
     this.state = {
-      isloading,
       fetchURL,
       description: '',
       date: '',
@@ -61,5 +60,7 @@ export default class AddTask extends Component {
   }
 }
 
-// AddTask.propTypes = {
-// };
+AddTask.propTypes = {
+  setIsloading: PropTypes.func.isRequired,
+  fetchURL: PropTypes.string.isRequired,
+};

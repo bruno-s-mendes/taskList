@@ -3,6 +3,14 @@ import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 
 class Task extends Component {
+  constructor(props) {
+    super(props);
+    const { fetchURL } = this.props;
+    this.state = {
+      fetchURL,
+      statusList: [],
+    }
+  }
   render() {
     const { description, creation, deadline, status, id } = this.props;
     console.log(id);
