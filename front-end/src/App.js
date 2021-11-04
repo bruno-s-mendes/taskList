@@ -1,5 +1,6 @@
 import './App.css';
 import AddTask from './components/AddTask';
+import TaskList from './components/TaskList';
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
         <h1>Lista de Tarefas</h1>
       </header>
       <AddTask/>
-      {/* <TaskList/> */}
+      <TaskList/>
     </div>
   );
 }
