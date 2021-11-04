@@ -8,6 +8,7 @@ export default class App extends Component {
     super();
     this.state = {
       isLoading: false,
+      fetchURL: 'http://localhost:3100/',
     }
   }
 
@@ -17,8 +18,8 @@ export default class App extends Component {
       <header className="">
         <h1>Lista de Tarefas</h1>
       </header>
-      <AddTask/>
-      <TaskList/>
+      <AddTask isloading={this.state.isLoading} fetchURL={this.state.fetchURL} />
+      <TaskList isloading={this.state.isLoading} fetchURL={this.state.fetchURL} />
     </div>
     );
   }
