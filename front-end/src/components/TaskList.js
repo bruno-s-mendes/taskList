@@ -1,39 +1,18 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 export default class TaskList extends Component {
   constructor(props) {
     super(props);
-    const { isloading, fetchURL } = this.props;
+    const { fetchURL } = this.props;
     this.state = {
-      isloading,
       fetchURL,
-      taskList: [],
       statusList: [],
     }
-    this.fetchtasks = this.fetchtasks.bind(this);
   }
-
-  componentDidMount() {
-    this.fetchtasks();
-  }
-  
-  fetchtasks = async () => {
-    fetch(this.state.fetchURL)
-    .then(response => response.json())
-    .then(data => console.log(data))
-    // .then(data => this.setState({ taskList: data }))
-    .catch(error => {
-      console.error('There was an error!', error);
-  });;
-  }
-
 
   render() {
-    if (this.props.isLoading) {
-      this.props.setIsloading(false);
-      this.fetchtasks();
-    }
+    console.log(this.props.taskList)
     return (
       <table>
         <tr>
@@ -53,7 +32,7 @@ export default class TaskList extends Component {
   }
 }
 
-TaskList.propTypes = {
-  isloading: PropTypes.bool.isRequired,
-  fetchURL: PropTypes.string.isRequired,
-};
+// TaskList.propTypes = {
+//   isloading: PropTypes.bool.isRequired,
+//   fetchURL: PropTypes.string.isRequired,
+// };
