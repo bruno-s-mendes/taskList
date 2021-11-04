@@ -3,7 +3,7 @@ require('dotenv').config();
 
 let schema = null;
 
-async function connection() {
+const connection = async () => {
   if (schema) return Promise.resolve(schema);
   return MongoClient
     .connect(process.env.DB_URL, {

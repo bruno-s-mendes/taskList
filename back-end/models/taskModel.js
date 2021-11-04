@@ -1,5 +1,5 @@
 const { ObjectId } = require('bson');
-const { connection } = require('./connection');
+const  { connection } = require('./connection');
 
 const COLLECTION = 'tasks';
 
