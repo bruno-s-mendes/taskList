@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../style/TaskList.css';
 
 class Task extends Component {
   constructor(props) {
@@ -50,24 +51,28 @@ class Task extends Component {
     const { description, creation, deadline, status, statusList } = this.state;
     return (
       <tr>
-      <td><input
+      <td className="description-cell"><input
+        className="cell-input"
         type="text"
         onChange= {(event) => this.changeState('description', event)}
         value = {description}
         onBlurCapture={() => this.updateTask()}
       /></td>
-      <td><input
+      <td className="table-cell"><input
+          className="cell-input"
           readOnly
           type="text"
           value = {creation}
         /></td>
-      <td><input
+      <td className="table-cell"><input
+          className="cell-input"
           type="date"
           onChange= {(event) => this.changeState('deadline', event)}
           value = {deadline}
           onBlurCapture={() => this.updateTask()}
         /></td>
-      <td><select 
+      <td className="table-cell"><select 
+            className="status-input"
             name="status"
             value={status}
             onChange={(event) => this.changeState('status', event)}
@@ -75,6 +80,7 @@ class Task extends Component {
             >
           { statusList.map((status, index) => <option key ={index} value={ status }>{ status }</option>) }
           </select><button
+          className="delete-btn"
           onClick={() => this.removeTask()}
           >x</button></td>
     </tr>

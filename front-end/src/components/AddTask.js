@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../style/AddTask.css';
 
 export default class AddTask extends Component {
   constructor(props) {
@@ -36,14 +37,16 @@ export default class AddTask extends Component {
 
   render() {
     return (
-      <form>
+      <form className="new-task">
         <input
+          className="input-text"
           type="text"
           placeholder="Descrição"
           onChange= {(event) => this.changeState('description', event)}
           value = {this.state.description}
         />
         <input
+          className="input-date"
           required
           type="date"
           placeholder="Prazo"
@@ -51,6 +54,7 @@ export default class AddTask extends Component {
           value = {this.state.date}
         />
         <button
+          className="input-btn"
           type="submit"
           onClick={ (event) => this.handleClick(event) }
         >

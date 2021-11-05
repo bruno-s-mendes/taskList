@@ -1,4 +1,4 @@
-import './App.css';
+import './style/App.css'
 import React, { Component } from 'react';
 import AddTask from './components/AddTask';
 import TaskList from './components/TaskList';
@@ -18,14 +18,14 @@ export default class App extends Component {
   componentDidMount() {
     this.fetchtasks();
     this.setIsLoading(true);
-  }
+  };
 
   componentDidUpdate(_prevProps, _prevState) {
     if (this.state.isLoading) {
       this.fetchtasks();
       this.setIsLoading(false);
-    }
-  }
+    };
+  };
   
   fetchtasks = async () => {
     fetch(this.state.fetchURL)
@@ -33,8 +33,8 @@ export default class App extends Component {
     .then(data => this.setState({ taskList: data }))
     .catch(error => {
       console.error('There was an error!', error);
-  });;
-  }
+  });
+  };
 
   setIsLoading = (value) => {
     this.setState({
@@ -45,7 +45,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-      <header className="">
+      <header className="App-header">
         <h1>Lista de Tarefas</h1>
       </header>
       <AddTask setIsloading={this.setIsLoading} fetchURL={this.state.fetchURL} />

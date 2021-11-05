@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Task from './Task';
 import PropTypes from 'prop-types';
+import '../style/TaskList.css';
 
 export default class TaskList extends Component {
   constructor(props) {
@@ -44,19 +45,24 @@ export default class TaskList extends Component {
     const { orderedList } = this.state;
     const list = orderedList;
     return (
-      <table>
+      <table className="task-list">
         <thead>
           <tr>
-            <th><button
+            <th className="description-header"
+            ><button
+              className="header-btn"
               onClick={ () => this.setState({orderBy: 'description'})}
             >Descrição</button></th>
-            <th><button
+            <th className="table-header"><button
+              className="header-btn"
               onClick={ () => this.setState({orderBy: 'creationDate'})}
             >Criação</button></th>
-            <th><button
+            <th className="table-header"><button
+              className="header-btn"
               onClick={ () => this.setState({orderBy: 'deadLine'})}
             >Prazo</button></th>
-            <th><button
+            <th className="table-header"><button
+              className="header-btn"
               onClick={ () => this.setState({orderBy: 'status'})}
             >Status</button></th>
           </tr>
