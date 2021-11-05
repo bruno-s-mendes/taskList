@@ -48,7 +48,6 @@ class Task extends Component {
 
   render() {
     const { description, creation, deadline, status, statusList } = this.state;
-    
     return (
       <tr>
       <td><input
@@ -57,16 +56,24 @@ class Task extends Component {
         value = {description}
         onBlurCapture={() => this.updateTask()}
       /></td>
-      <td>{creation}</td>
+      <td><input
+          readOnly
+          type="text"
+          value = {creation}
+        /></td>
       <td><input
           type="date"
           onChange= {(event) => this.changeState('deadline', event)}
           value = {deadline}
           onBlurCapture={() => this.updateTask()}
         /></td>
-      <td><select name="status">
-          <option value={status} >{status}</option>
-          {/* { statusList.map((status) => <option value={ status }>{ status }</option>) } */}
+      <td><select 
+            name="status"
+            value={status}
+            onChange={(event) => this.changeState('status', event)}
+            onBlurCapture={() => this.updateTask()}
+            >
+          { statusList.map((status, index) => <option key ={index} value={ status }>{ status }</option>) }
           </select><button
           onClick={() => this.removeTask()}
           >x</button></td>
@@ -83,6 +90,7 @@ Task.propTypes = {
   creation: PropTypes.string.isRequired,
   deadline: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
+  statusList: PropTypes.array.isRequired,
 };
 
 export default Task;

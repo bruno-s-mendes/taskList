@@ -10,6 +10,7 @@ export default class App extends Component {
       isLoading: false,
       fetchURL: 'http://localhost:3100/',
       taskList: [],
+      statusList: ["Pendente", "Em andamento", "Pronto"],
     }
     this.fetchtasks = this.fetchtasks.bind(this);
   }
@@ -48,7 +49,7 @@ export default class App extends Component {
         <h1>Lista de Tarefas</h1>
       </header>
       <AddTask setIsloading={this.setIsLoading} fetchURL={this.state.fetchURL} />
-      <TaskList taskList={this.state.taskList} setIsloading={this.setIsLoading} fetchURL={this.state.fetchURL} />
+      <TaskList taskList={this.state.taskList} setIsloading={this.setIsLoading} fetchURL={this.state.fetchURL} statusList={this.state.statusList} />
     </div>
     );
   }

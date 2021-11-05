@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 export default class TaskList extends Component {
   render() {
-    const { taskList, setIsloading, fetchURL } = this.props;
+    const { taskList, setIsloading, fetchURL, statusList } = this.props;
     const list = taskList;
     return (
       <table>
@@ -28,6 +28,7 @@ export default class TaskList extends Component {
                 creation={item.creationDate}
                 deadline={item.deadLine}
                 status={item.status}
+                statusList={statusList}
               />
             )) }
           </tbody>
