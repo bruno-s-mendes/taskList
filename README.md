@@ -1,7 +1,7 @@
 # Task List
 Projeto de desafio técnico para empresa Ebytr
 
-Obejtivo de desenvolver Uma lista de tarefas utilizando react como ferramenta  front-end e Explress junto do mongoDB no back-end;
+Obejtivo de desenvolver Uma lista de tarefas utilizando React como ferramenta front-end e Express com mongoDB no back-end;
 
 ---
 
@@ -83,6 +83,7 @@ Deve ser possível alterar o status de uma tarefa da lista entre pendente, em an
 ![back](https://user-images.githubusercontent.com/78617162/140455584-6bd84a60-4a7d-4756-b936-1e6d56cbac06.png)
 
   Front-End:
+  
 ![front](https://user-images.githubusercontent.com/78617162/140455623-c8631d8d-6e76-443c-8183-0564991560ad.png)
 
   Tendo essas estruturas, eu tive um guia para montar a plicação. Comecei pelo Back-End, criando uma aplicação REST com arquitetura MSC, utilizei o banco de dados Mongo DB com uma collection para guardar as tarefas.
