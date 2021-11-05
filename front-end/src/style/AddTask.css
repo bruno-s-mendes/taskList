@@ -1,0 +1,28 @@
+.new-task {
+  margin: 15px;
+}
+
+.input-text {
+  background-color: whitesmoke;
+  color: black;
+  font-weight: 400;
+  height: 25px;
+  margin: 5px;
+  width: 300px;
+}
+
+.input-date {
+  background-color: whitesmoke;
+  color: black;
+  font-weight: 400;
+  height: 25px;
+  margin: 5px;
+}
+
+.input-btn {
+  background-color: whitesmoke;
+  color: black;
+  font-weight: 400;
+  height: 30px;
+  margin: 5px;
+}

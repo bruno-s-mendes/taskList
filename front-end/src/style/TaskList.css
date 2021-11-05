@@ -1,0 +1,61 @@
+.task-list{
+  align-self: center;
+  text-align: center;
+  width: 80%;
+}
+
+.description-header{
+  height: 30px;
+  width: 800px;
+  font-size: 25px;
+}
+
+.description-cell{
+  background-color: blue;
+  height: 30px;
+  width: 800px;
+}
+
+.table-header{
+  height: 30px;
+}
+
+.table-cell{
+  height: 30px;
+}
+
+.header-btn{
+  background-color: whitesmoke;
+  border: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 800;
+  height: 100%;
+  width: 100%;
+}
+
+.cell-input{
+  background-color: whitesmoke;
+  border: none;
+  color: black;
+  height: 99%;
+  width: 99.5%;
+}
+
+.status-input{
+  background-color: whitesmoke;
+  border: none;
+  color: black;
+  height: 99%;
+  width: 79%;
+}
+
+.delete-btn{
+  background-color: red;
+  border: solid red 1px;
+  color: black;
+  font-size: 20px;
+  font-weight: 800;
+  height: 99%;
+  width: 18%;
+}
